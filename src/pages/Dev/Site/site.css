@@ -1,0 +1,12 @@
+.site-page-header {
+    border: 1px solid rgb(235, 237, 240);
+  }
+
+  .site-list{
+    width: 800px;
+  }
+
+  .site-pagination{
+    margin-top: 100px !important;
+    /* margin-left: 50px !important; */
+  }

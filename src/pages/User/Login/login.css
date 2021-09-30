@@ -1,0 +1,19 @@
+.login {
+    padding: 30px;
+    margin: 100px auto;
+    width: 400px;
+    height: 300px;
+    background-color: fff(112, 21, 21);
+}
+
+.user-login-title {
+font-size: 25px;
+font-weight: bold;
+text-align: center;
+margin-right: 20px !important;
+}
+
+.login-form-button{
+    margin-left: 150px;
+    width: 100px;
+}
