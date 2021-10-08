@@ -2,6 +2,25 @@
 // 封装axios库
 import axios from "axios"
 import { message } from "antd"
+import storageUtils from "../utils/storageUtils"
+import { pathIsDev } from '../common/methods'
+const isAdmin = pathIsDev()
+
+// 请求拦截
+axios.interceptors.request.use(function (config) {
+    if (isAdmin) {
+        if (storageUtils.getAdminToken()) {
+            config.headers.Auth = storageUtils.getAdminToken()
+        }
+    } else {
+        if (storageUtils.getUserToken()) {
+            config.headers.Auth = storageUtils.getUserToken()
+        }
+    }
+    return config
+}, function (error) {
+    return Promise.reject(error)
+})
 
 export default async function ajax(url, data = {}, type = 'GET') {
 
@@ -27,5 +46,3 @@ export default async function ajax(url, data = {}, type = 'GET') {
         message.error('请求出错了：', error.message)
     }
 }
-
-

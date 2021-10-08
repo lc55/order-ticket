@@ -144,7 +144,7 @@ export default class PlatForm extends Component {
                                         columns={columns}
                                         dataSource={dataSource}
                                         bordered
-                                        rowKey="key"
+                                        rowKey="id"
                                         pagination={{
                                             pageSize: pageSize,
                                             total: totalCount,

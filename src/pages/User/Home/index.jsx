@@ -14,11 +14,11 @@ export default class Home extends Component {
 
     logout = async () => {
         const user = storageUtils.getUser()
-        storageUtils.removeUser()
-        storageUtils.removeUserToken()
         const result = await userLogout(user.id)
         if (result.code === 1) {
             this.props.history.push({ pathname: '/user/login' })
+            storageUtils.removeUser()
+            storageUtils.removeUserToken()
         } else {
             message.error(result.msg)
         }

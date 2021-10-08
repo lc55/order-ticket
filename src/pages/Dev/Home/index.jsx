@@ -41,7 +41,7 @@ export default class Dev extends Component {
     }
 
     render() {
-        const admin = storageUtils.getUser()
+        const admin = storageUtils.getAdmin()
         if (Object.keys(admin).length === 0) {
             return <Redirect to='/dev/login' />
         }

@@ -2,20 +2,16 @@ import React, { Component } from 'react'
 import { Form, Input, Button, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { adminLogin } from '../../../api/dev/admin'
-// import MemoryUser from '../../../utils/MemoryUser'
 import storageUtils from '../../../utils/storageUtils'
 import './login.css'
 
 export default class Login extends Component {
-
 
     onFinish = async (values) => {
         const { phone, password } = values
         const result = await adminLogin(phone, password)
         if (result.code === 1) {
             message.success("登录成功！")
-            // MemoryUser.token=result.token
-            // MemoryUser.user=result.admin
             storageUtils.saveAdminToken(result.data.token)
             storageUtils.saveAdmin(result.data.admin)
             this.props.history.push({ pathname: "/dev/home" })
